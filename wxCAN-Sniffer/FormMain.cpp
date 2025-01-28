@@ -33,7 +33,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
         panelLeftBottom = new wxPanel(splitterLeft, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL | wxNO_BORDER);
 
         // левый верхний сайзер
-        auto sizerLeftTop = new wxStaticBoxSizer(new wxStaticBox(panelLeftTop, wxID_ANY, wxT("Просмотр пакетов")), wxVERTICAL);
+        auto sizerLeftTop = new wxStaticBoxSizer(new wxStaticBox(panelLeftTop, wxID_ANY, wxT("View frames")), wxVERTICAL);
         {
             gridCANView = new wxGrid(panelLeftTop, wxID_ANY);
             // параметры сетки
@@ -54,16 +54,16 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
             gridCANView->SetDefaultCellAlignment(wxALIGN_CENTRE, wxALIGN_CENTRE);
             // заполнение таблицы
             gridCANView->SetColLabelValue(0, wxT("CAN ID"));
-            gridCANView->SetColLabelValue(1, wxT("Интервал"));
-            gridCANView->SetColLabelValue(2, wxT("Длина"));
-            gridCANView->SetColLabelValue(3, wxT("Байт 0"));
-            gridCANView->SetColLabelValue(4, wxT("Байт 1"));
-            gridCANView->SetColLabelValue(5, wxT("Байт 2"));
-            gridCANView->SetColLabelValue(6, wxT("Байт 3"));
-            gridCANView->SetColLabelValue(7, wxT("Байт 4"));
-            gridCANView->SetColLabelValue(8, wxT("Байт 5"));
-            gridCANView->SetColLabelValue(9, wxT("Байт 6"));
-            gridCANView->SetColLabelValue(10, wxT("Байт 7"));
+            gridCANView->SetColLabelValue(1, wxT("Interval"));
+            gridCANView->SetColLabelValue(2, wxT("Len"));
+            gridCANView->SetColLabelValue(3, wxT("Byte 0"));
+            gridCANView->SetColLabelValue(4, wxT("Byte 1"));
+            gridCANView->SetColLabelValue(5, wxT("Byte 2"));
+            gridCANView->SetColLabelValue(6, wxT("Byte 3"));
+            gridCANView->SetColLabelValue(7, wxT("Byte 4"));
+            gridCANView->SetColLabelValue(8, wxT("Byte 5"));
+            gridCANView->SetColLabelValue(9, wxT("Byte 6"));
+            gridCANView->SetColLabelValue(10, wxT("Byte 7"));
             // установка ширины столбцов
             gridCANView->SetColSize(0, FromDIP(100));
             for (size_t iCol = 1; iCol < 11; iCol++)
@@ -80,7 +80,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
         panelLeftTop->SetSizer(sizerLeftTop);
 
         // левый нижний сайзер
-        auto sizerLeftBottom = new wxStaticBoxSizer(new wxStaticBox(panelLeftBottom, wxID_ANY, wxT("Тестовая отправка пакета и просмотр ответа")), wxVERTICAL);
+        auto sizerLeftBottom = new wxStaticBoxSizer(new wxStaticBox(panelLeftBottom, wxID_ANY, wxT("Test sending a packet and viewing the response")), wxVERTICAL);
         {
             // сайзер с текстовыми полями ввода данных CAN-пакета
             auto sizerLeftBottomText = new wxBoxSizer(wxHORIZONTAL);
@@ -114,16 +114,16 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
             // сайзер с кнопками управления отправкой и журналом ответа
             auto sizerLeftBottomButtons = new wxBoxSizer(wxHORIZONTAL);
             {
-                buttonSend = new wxButton(panelLeftBottom, wxID_ANY, wxT("Отправить CAN-пакет"));
+                buttonSend = new wxButton(panelLeftBottom, wxID_ANY, wxT("Send CAN frame"));
                 sizerLeftBottomButtons->Add(buttonSend, 0, wxALL, 4);
-                auto labelCANFromID = new wxStaticText(panelLeftBottom, wxID_ANY, wxT("Отображать ответ от:"), wxDefaultPosition, wxDefaultSize);
+                auto labelCANFromID = new wxStaticText(panelLeftBottom, wxID_ANY, wxT("Show answer from:"), wxDefaultPosition, wxDefaultSize);
                 labelCANFromID->Wrap(-1);
                 sizerLeftBottomButtons->Add(labelCANFromID, 0, wxALL, 9);
                 textCANAnswerID = new wxTextCtrl(panelLeftBottom, wxID_ANY, wxT("7E8"), wxDefaultPosition, FromDIP(wxSize(51, 20)), wxTE_CENTRE | wxTE_PROCESS_ENTER | wxBORDER_SIMPLE);
                 sizerLeftBottomButtons->Add(textCANAnswerID, 0, wxALL, 7);
                 // спейсер между кнопками
                 sizerLeftBottomButtons->Add(0, 0, 1, wxEXPAND, 0);
-                buttonClearCANLog = new wxButton(panelLeftBottom, wxID_ANY, wxT("Очистить ответ"));
+                buttonClearCANLog = new wxButton(panelLeftBottom, wxID_ANY, wxT("Clear answer"));
                 sizerLeftBottomButtons->Add(buttonClearCANLog, 0, wxALL, 4);
             }
             sizerLeftBottom->Add(sizerLeftBottomButtons, 0, wxEXPAND, 0);
@@ -147,15 +147,15 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
             gridCANLog->SetDefaultCellAlignment(wxALIGN_CENTRE, wxALIGN_CENTRE);
             // заполнение таблицы
             gridCANLog->SetColLabelValue(0, wxT("CAN ID"));
-            gridCANLog->SetColLabelValue(1, wxT("Длина"));
-            gridCANLog->SetColLabelValue(2, wxT("Байт 0"));
-            gridCANLog->SetColLabelValue(3, wxT("Байт 1"));
-            gridCANLog->SetColLabelValue(4, wxT("Байт 2"));
-            gridCANLog->SetColLabelValue(5, wxT("Байт 3"));
-            gridCANLog->SetColLabelValue(6, wxT("Байт 4"));
-            gridCANLog->SetColLabelValue(7, wxT("Байт 5"));
-            gridCANLog->SetColLabelValue(8, wxT("Байт 6"));
-            gridCANLog->SetColLabelValue(9, wxT("Байт 7"));
+            gridCANLog->SetColLabelValue(1, wxT("Len"));
+            gridCANLog->SetColLabelValue(2, wxT("Byte 0"));
+            gridCANLog->SetColLabelValue(3, wxT("Byte 1"));
+            gridCANLog->SetColLabelValue(4, wxT("Byte 2"));
+            gridCANLog->SetColLabelValue(5, wxT("Byte 3"));
+            gridCANLog->SetColLabelValue(6, wxT("Byte 4"));
+            gridCANLog->SetColLabelValue(7, wxT("Byte 5"));
+            gridCANLog->SetColLabelValue(8, wxT("Byte 6"));
+            gridCANLog->SetColLabelValue(9, wxT("Byte 7"));
             // установка ширины столбцов
             for (size_t iCol = 0; iCol < 10; iCol++)
             {
@@ -180,7 +180,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
         auto sizerRight = new wxBoxSizer(wxVERTICAL);
         {
             // последовательный порт, кнопка управления и статистика буфера
-            auto sizerControls = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, wxT("Управление")), wxHORIZONTAL);
+            auto sizerControls = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, wxT("Control")), wxHORIZONTAL);
             {
                 comboBoxSerialPort = new wxComboBox(this, wxID_ANY, wxEmptyString, wxDefaultPosition, FromDIP(wxSize(90, 22)), 0, nullptr, wxTE_CENTRE | wxBORDER_SIMPLE);
                 auto ports = ThreadedSerialPort::Enumerate();
@@ -209,36 +209,36 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                 }
                 else
                 {
-                    comboBoxSerialPort->SetToolTip(wxT("Последовательный порт"));
+                    comboBoxSerialPort->SetToolTip(wxT("Serial port (empty if WiFi)"));
                 }
                 sizerControls->Add(comboBoxSerialPort, 2, wxALL, 2);
 
-                comboBoxSerialSpeed = new wxComboBox(this, wxID_ANY, wxT("500000"), wxDefaultPosition, FromDIP(wxSize(90, 22)), 0, nullptr, wxTE_CENTRE | wxBORDER_SIMPLE);
+                comboBoxSerialSpeed = new wxComboBox(this, wxID_ANY, wxT("512000"), wxDefaultPosition, FromDIP(wxSize(90, 22)), 0, nullptr, wxTE_CENTRE | wxBORDER_SIMPLE);
                 comboBoxSerialSpeed->Append(wxT("57600"));
                 comboBoxSerialSpeed->Append(wxT("115200"));
-                comboBoxSerialSpeed->Append(wxT("250000"));
-                comboBoxSerialSpeed->Append(wxT("500000"));
+                comboBoxSerialSpeed->Append(wxT("256000"));
+                comboBoxSerialSpeed->Append(wxT("512000"));
                 comboBoxSerialSpeed->Append(wxT("1000000"));
                 comboBoxSerialSpeed->Append(wxT("2000000"));
-                comboBoxSerialSpeed->SetToolTip(wxT("Скорость соединения"));
+                comboBoxSerialSpeed->SetToolTip(wxT("Connection speed"));
                 sizerControls->Add(comboBoxSerialSpeed, 2, wxALL, 2);
 
-                buttonConnectDisconnect = new wxButton(this, wxID_ANY, wxT("Подключить"), wxDefaultPosition, FromDIP(wxSize(80, 25)));
+                buttonConnectDisconnect = new wxButton(this, wxID_ANY, wxT("Connect"), wxDefaultPosition, FromDIP(wxSize(80, 25)));
                 buttonConnectDisconnect->SetFocus();
                 sizerControls->Add(buttonConnectDisconnect, 2, wxALL, 0);
 
                 textFPS = new wxTextCtrl(this, wxID_ANY, wxT("0"), wxDefaultPosition, FromDIP(wxSize(50, 22)), wxTE_CENTRE | wxTE_READONLY | wxBORDER_SIMPLE);
-                textFPS->SetToolTip(wxT("пакетов/с"));
+                textFPS->SetToolTip(wxT("frames/s"));
                 sizerControls->Add(textFPS, 1, wxALL, 2);
 
                 textBPS = new wxTextCtrl(this, wxID_ANY, wxT("0"), wxDefaultPosition, FromDIP(wxSize(50, 22)), wxTE_CENTRE | wxTE_READONLY | wxBORDER_SIMPLE);
-                textBPS->SetToolTip(wxT("байтов/с (исключая служебную информацию)"));
+                textBPS->SetToolTip(wxT("bytes/s (excl. service info)"));
                 sizerControls->Add(textBPS, 1, wxALL, 2);
             }
             sizerRight->Add(sizerControls, 0, wxALL | wxEXPAND, 2);
 
             // журнал, кнопки управления логом и его параметры
-            paneLog = new wxCollapsiblePane(this, wxID_ANY, "Запись в журнал", wxDefaultPosition, wxDefaultSize, wxCP_NO_TLW_RESIZE | wxCP_DEFAULT_STYLE);
+            paneLog = new wxCollapsiblePane(this, wxID_ANY, "Logging", wxDefaultPosition, wxDefaultSize, wxCP_NO_TLW_RESIZE | wxCP_DEFAULT_STYLE);
             paneLog->Bind(wxEVT_COLLAPSIBLEPANE_CHANGED, [this](wxCollapsiblePaneEvent&)
                 {
                     Layout();
@@ -248,7 +248,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                 auto pane = paneLog->GetPane();
                 auto sizerLog = new wxBoxSizer(wxVERTICAL);
                 {
-                    checkLogEnable = new wxCheckBox(pane, wxID_ANY, wxT("Вести запись в журнал"));
+                    checkLogEnable = new wxCheckBox(pane, wxID_ANY, wxT("Save Log"));
                     checkLogEnable->SetValue(logEnable);
                     sizerLog->Add(checkLogEnable, 0, wxALL, 5);
 
@@ -257,13 +257,13 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                         // кнопки журнала
                         auto sizerLogButtons = new wxBoxSizer(wxVERTICAL);
                         {
-                            buttonAdd = new wxButton(pane, wxID_ANY, wxT("Добавить ID в фильтр >>"));
+                            buttonAdd = new wxButton(pane, wxID_ANY, wxT("Add ID to filter >>"));
                             sizerLogButtons->Add(buttonAdd, 1, wxALL | wxEXPAND, 2);
 
-                            buttonRemove = new wxButton(pane, wxID_ANY, wxT("Убрать ID из фильтра <<"));
+                            buttonRemove = new wxButton(pane, wxID_ANY, wxT("Remove ID from filter <<"));
                             sizerLogButtons->Add(buttonRemove, 1, wxALL | wxEXPAND, 2);
 
-                            buttonRemoveAll = new wxButton(pane, wxID_ANY, wxT("Очистить фильтр"));
+                            buttonRemoveAll = new wxButton(pane, wxID_ANY, wxT("Clear filter"));
                             sizerLogButtons->Add(buttonRemoveAll, 1, wxALL | wxEXPAND, 2);
 
                             // ширина кнопок фильтров
@@ -279,7 +279,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                     // настройки типа файла журнала
                     auto sizerLogType = new wxBoxSizer(wxHORIZONTAL);
                     {
-                        auto labelExt = new wxStaticText(pane, wxID_ANY, wxT("Тип файла:"));
+                        auto labelExt = new wxStaticText(pane, wxID_ANY, wxT("File type:"));
                         labelExt->Wrap(-1);
                         sizerLogType->Add(labelExt, 0, wxALL, 8);
 
@@ -291,7 +291,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                         logExt = wxT(".csv");
                         sizerLogType->Add(choiceExt, 0, wxALL, 2);
 
-                        auto labelSep = new wxStaticText(pane, wxID_ANY, wxT("Разделитель:"));
+                        auto labelSep = new wxStaticText(pane, wxID_ANY, wxT("Separator:"));
                         labelSep->Wrap(-1);
                         sizerLogType->Add(labelSep, 0, wxALL, 8);
 
@@ -312,13 +312,13 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                     // параметры сохранения данных в лог
                     auto sizerLogParameters = new wxBoxSizer(wxVERTICAL);
                     {
-                        checkSingle = new wxCheckBox(pane, wxID_ANY, wxT("Сохранение данных в один файл"));
+                        checkSingle = new wxCheckBox(pane, wxID_ANY, wxT("Save data into a single file"));
                         checkSingle->SetValue(logSingle);
                         sizerLogParameters->Add(checkSingle, 0, wxALL, 5);
-                        checkDec = new wxCheckBox(pane, wxID_ANY, wxT("Десятичный вывод данных"));
+                        checkDec = new wxCheckBox(pane, wxID_ANY, wxT("Decimal data output"));
                         checkDec->SetValue(logDecimal);
                         sizerLogParameters->Add(checkDec, 0, wxALL, 5);
-                        checkASCII = new wxCheckBox(pane, wxID_ANY, wxT("Добавлять ASCII данные"));
+                        checkASCII = new wxCheckBox(pane, wxID_ANY, wxT("Add ASCII data"));
                         checkASCII->SetValue(logASCII);
                         sizerLogParameters->Add(checkASCII, 0, wxALL, 5);
                     }
@@ -331,12 +331,12 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
             sizerRight->Add(paneLog, 0, wxALL | wxEXPAND, 4);
 
             // элементы для наглядного представления чисел
-            auto sizerDecoders = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, wxT("Декодированные значения")), wxVERTICAL);
+            auto sizerDecoders = new wxStaticBoxSizer(new wxStaticBox(this, wxID_ANY, wxT("Decoded values")), wxVERTICAL);
             {
                 // выбор типа данных для отображения и порядка следования байтов
                 auto sizerDataType = new wxBoxSizer(wxHORIZONTAL);
                 {
-                    auto labelDataType = new wxStaticText(this, wxID_ANY, wxT("Тип данных:"), wxDefaultPosition, wxDefaultSize);
+                    auto labelDataType = new wxStaticText(this, wxID_ANY, wxT("Data type:"), wxDefaultPosition, wxDefaultSize);
                     labelDataType->Wrap(-1);
                     sizerDataType->Add(labelDataType, 1, wxALL, 3);
                     wxArrayString comboDataTypeChoices;
@@ -361,7 +361,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                 // отображение двоичного байта
                 auto sizerDecoderBinary = new wxBoxSizer(wxHORIZONTAL);
                 {
-                    auto labelBinary = new wxStaticText(this, wxID_ANY, wxT("Двоичный вид:"), wxDefaultPosition, wxDefaultSize);
+                    auto labelBinary = new wxStaticText(this, wxID_ANY, wxT("Binary view:"), wxDefaultPosition, wxDefaultSize);
                     labelBinary->Wrap(-1);
                     sizerDecoderBinary->Add(labelBinary, 1, wxALL, 3);
                     textBin = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, wxTE_CENTRE | wxTE_READONLY | wxBORDER_SIMPLE);
@@ -372,7 +372,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                 // отображение десятичного байта
                 auto sizerDecoderDecimal = new wxBoxSizer(wxHORIZONTAL);
                 {
-                    auto labelDecimal = new wxStaticText(this, wxID_ANY, wxT("Десятичный вид:"), wxDefaultPosition, wxDefaultSize);
+                    auto labelDecimal = new wxStaticText(this, wxID_ANY, wxT("Decimal view:"), wxDefaultPosition, wxDefaultSize);
                     labelDecimal->Wrap(-1);
                     sizerDecoderDecimal->Add(labelDecimal, 1, wxALL, 3);
                     textDec = new wxTextCtrl(this, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, wxTE_CENTRE | wxTE_READONLY | wxBORDER_SIMPLE);
@@ -383,7 +383,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                 // множитель десятичного слова
                 auto sizerDecimalMul = new wxBoxSizer(wxHORIZONTAL);
                 {
-                    auto labelDecimalMul = new wxStaticText(this, wxID_ANY, wxT("Множитель:"), wxDefaultPosition, wxDefaultSize);
+                    auto labelDecimalMul = new wxStaticText(this, wxID_ANY, wxT("Multiplier:"), wxDefaultPosition, wxDefaultSize);
                     labelDecimalMul->Wrap(-1);
                     sizerDecimalMul->Add(labelDecimalMul, 1, wxALL, 3);
                     textDecWordMul = new wxTextCtrl(this, wxID_ANY, wxString::Format(FORMAT_FLOAT1_3, mul), wxDefaultPosition, wxDefaultSize, wxTE_CENTRE | wxTE_PROCESS_ENTER | wxBORDER_SIMPLE);
@@ -394,7 +394,7 @@ FormMain::FormMain(const WindowColors& colors) : wxFrame(nullptr, ID_MAIN_FORM, 
                 // результат умножения десятичного слова
                 auto sizerDecimalResult = new wxBoxSizer(wxHORIZONTAL);
                 {
-                    auto labelDecimalResult = new wxStaticText(this, wxID_ANY, wxT("Результат:"), wxDefaultPosition, wxDefaultSize);
+                    auto labelDecimalResult = new wxStaticText(this, wxID_ANY, wxT("Result:"), wxDefaultPosition, wxDefaultSize);
                     labelDecimalResult->Wrap(-1);
                     sizerDecimalResult->Add(labelDecimalResult, 1, wxALL, 3);
                     textDecimalResult = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_CENTRE | wxTE_READONLY | wxBORDER_SIMPLE);

@@ -15,7 +15,7 @@
     #define MEMCOPY(dest, source, size) memcpy(dest, source, size);
 #endif
 
-#define CAPTION             wxT("CAN Sniffer 2.3.0")
+#define CAPTION             wxT("CAN Sniffer 2.3.1 EN")
 
 #define SIGNATURE_DWORD     0x55AA55AA  // сигнатура пакета (big-endian)
 #define UDP_PORT            0xAA55      // UDP порт
@@ -102,8 +102,8 @@ public:
     wxColour GraphText;                 // цвет текста графика
 };
 
-#define CONNECT                     wxT("Подключить")
-#define DISCONNECT                  wxT("Отключить")
+#define CONNECT                     wxT("Connect")
+#define DISCONNECT                  wxT("Disconnect")
 
 #define FORMAT_HEX2                 wxT("%02X")
 #define FORMAT_HEX3                 wxT("%03X")
@@ -115,12 +115,12 @@ public:
 #define FORMAT_FLOAT1_0             wxT("%1.0f")
 #define FORMAT_FLOAT1_3             wxT("%1.3f")
 
-#define ERROR_CAPTION               wxT("Ошибка")
-#define ERROR_SERIAL                wxT("Невозможно работать с этим последовательным портом")
-#define ERROR_SERIAL_OPEN           wxT("Невозможно открыть порт.\nОшибка: 0x")
-#define ERROR_SERIAL_SET_PARAMETERS wxT("Невозможно установить параметры порта.\nОшибка: 0x")
-#define ERROR_SERIAL_READ           wxT("Ошибка чтения данных: 0x")
-#define ERROR_UDP_OPEN              wxT("Ошибка открытия UDP-сокета: ")
+#define ERROR_CAPTION               wxT("Error")
+#define ERROR_SERIAL                wxT("Unable to work with this serial port")
+#define ERROR_SERIAL_OPEN           wxT("Unable to open port.\nError: 0x")
+#define ERROR_SERIAL_SET_PARAMETERS wxT("Unable to set port parameters.\nError: 0x")
+#define ERROR_SERIAL_READ           wxT("Error reading data: 0x")
+#define ERROR_UDP_OPEN              wxT("Error opening UDP socket: ")
 
-#define ERROR_THREAD_CREATE         "Невозможно создать поток"
-#define ERROR_THREAD_START          "Невозможно запустить поток"
+#define ERROR_THREAD_CREATE         "Unable to create thread"
+#define ERROR_THREAD_START          "Unable to start stream"
