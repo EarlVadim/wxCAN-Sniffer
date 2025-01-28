@@ -614,7 +614,7 @@ void FormMain::ProcessCANFrame(CANFrameIn& frame)
     bool found = false;
 
     // если это пакет с адресом 000 - это статистика и её надо вывести отдельно
-    if (frame.id == 0 && frame.length >= 4)
+    if (frame.id == 0xEEE && frame.length >= 4)
     {
         uint16_t fps = frame.data[0] << 8 | frame.data[1];
         textFPS->ChangeValue(wxString::Format(FORMAT_INT, fps));    // кадров в секунду
