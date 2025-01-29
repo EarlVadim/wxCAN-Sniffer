@@ -9,6 +9,13 @@
 * Изменен язык интерфейса с русского на English
 * Изменена цветовая гамма темной схемы
 
+  <p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="00screenshot.png">
+    <img alt="3x-ui" src="00screenshot.png">
+  </picture>
+</p>
+
 - [Возможности](#Возможности)
 - [Статья](#Статья)
 - [Сборка приложения в Windows](#Сборка-приложения-в-Windows)
