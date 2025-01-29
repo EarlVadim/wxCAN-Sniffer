@@ -1,4 +1,4 @@
-[![](https://img.shields.io/github/v/release/EarlVadim/3x-ui.svg)](https://github.com/EarlVadim/wxCAN-Sniffer/releases)
+[![](https://img.shields.io/github/v/release/EarlVadim/wxCAN-Sniffer.svg)](https://github.com/EarlVadim/wxCAN-Sniffer/releases)
 [![Downloads](https://img.shields.io/github/downloads/EarlVadim/wxCAN-Sniffer/total)](#)
 [![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
  
