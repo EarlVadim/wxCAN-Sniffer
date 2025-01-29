@@ -1,6 +1,6 @@
 [![](https://img.shields.io/github/v/release/EarlVadim/wxCAN-Sniffer.svg)](https://github.com/EarlVadim/wxCAN-Sniffer/releases)
 [![Downloads](https://img.shields.io/github/downloads/EarlVadim/wxCAN-Sniffer/total)](#)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true)](https://mit-license.org/)
  
  
  # wxCAN-Sniffer - CAN bus sniffer (PC side)
