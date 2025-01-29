@@ -11,8 +11,8 @@
 
   <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="00screenshot.png">
-    <img alt="3x-ui" src="00screenshot.png">
+    <source media="(prefers-color-scheme: dark)" srcset="./00screenshot.png">
+    <img alt="wxCAN-Sniffer" src="./00screenshot.png">
   </picture>
 </p>
 
