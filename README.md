@@ -1,4 +1,9 @@
-﻿# wxCAN-Sniffer - CAN bus sniffer (PC side)
+[![](https://img.shields.io/github/v/release/EarlVadim/3x-ui.svg)](https://github.com/EarlVadim/wxCAN-Sniffer/releases)
+[![Downloads](https://img.shields.io/github/downloads/EarlVadim/wxCAN-Sniffer/total)](#)
+[![License](https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+ 
+ 
+ # wxCAN-Sniffer - CAN bus sniffer (PC side)
 
 * Изменен ID для пакета статистики с 0x0 на 0xEEE
 * Изменен язык интерфейса с русского на English
