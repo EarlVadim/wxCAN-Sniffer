@@ -7,10 +7,15 @@
 
 * Изменен ID для пакета статистики с 0x0 на 0xEEE
 * Изменен язык интерфейса с русского на English
+* Скетч под ESP32 переработан на поддержку 2-х CAN-шин и поддержку приложения для смартфона с настройкой CAN.
 * Изменена цветовая гамма темной схемы
 
-  <p align="center">
+<p align="center">
   <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./00photo.jpg">
+    <img alt="AN-Sniffer APP" src="./00photo.jpg">
+  </picture>
+ <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./00Screenshot.png">
     <img alt="wxCAN-Sniffer" src="./00Screenshot.png">
   </picture>
